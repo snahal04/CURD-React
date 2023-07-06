@@ -53,3 +53,65 @@ const User = (props) => {
   );
 };
 ```
+
+# Ternary Operator and CSS
+
+Ternary Operator is the same as we use in cpp. and CSS can be declared in line but ~~background-color~~ is written as backgroundColor. 
+
+```javascript
+function App(){
+  const isGreen = true;
+  return(
+    <div className="App">
+      <h1 style={{color: isGreen ? "green" : "red"}} className="name">Snahal</h1> // Ternary Operator
+      {isGreen && <button>BUTTON</button>} // another way of if else
+    </div>
+  );
+}
+```
+We can also use simple if-else statements but it's better to use a ternary operator to avoid extra usage of lines.
+
+# List and map in React
+
+```javascript
+function App(){
+  const names = [
+    {name: "snahal", age:21},
+    {name: "goldman", age:13}
+  ];
+
+  return(
+    <div>
+      {names.map((user,key)=>{
+        return <h1>{user.name} {user.age}</h1>;
+      })}
+    </div>
+  );
+}
+```
+# useState in React to trigger an event and change the display value
+
+```javascript
+import { useState } from 'react';
+import './App.css';
+
+
+function App(){
+  // let age = 12;
+
+  let [age, sAge] = useState(12); // Created to update the value
+//         anyname    fix
+  const increaseAge = () => {
+    // age = age +1;
+    sAge(age = age +1);
+    
+    console.log(age);
+  };
+  return <div className='App'>
+    {age} 
+    <button onClick={increaseAge}>Increase Age</button>
+  </div>
+}
+```
+
+
